@@ -1,0 +1,39 @@
+version: "3"
+services:
+  shortener:
+    build:
+      context: ..
+      dockerfile: build/shortener/Dockerfile
+    restart: always
+    ports:
+      - 8080:8080
+    links:
+      - redis
+      - postgres
+    environment:
+      - POSTRGRES_CONNSTR=host=postgres port=5432 user=postgres password=supersecret dbname=metrics sslmode=disable
+      - ADDRESS=http://localhost:8080/
+    depends_on:
+      - redis
+      - postgres
+  
+  redis:
+    image: redis:6.0.6-buster
+    volumes:
+      - redisdata:/data
+    hostname: redis
+
+  postgres:
+    build: 
+      context: ../
+      dockerfile: build/metricsdb/Dockerfile
+    volumes:
+      - psqldata:/var/lib/postgresql/data/pgdata
+    environment: 
+      - PGDATA=/var/lib/postgresql/data/pgdata
+      - POSTGRES_PASSWORD=supersecret
+    hostname: postgres
+    
+volumes:
+  redisdata: {}
+  psqldata: {}
