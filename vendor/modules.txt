@@ -1,0 +1,21 @@
+# github.com/alphazero/Go-Redis v0.0.0-20120924171622-a0637b154364
+## explicit
+github.com/alphazero/Go-Redis
+# github.com/btcsuite/btcutil v1.0.2
+## explicit
+github.com/btcsuite/btcutil/base58
+# github.com/gorilla/mux v1.7.4
+## explicit
+github.com/gorilla/mux
+# github.com/konsorten/go-windows-terminal-sequences v1.0.3
+github.com/konsorten/go-windows-terminal-sequences
+# github.com/lib/pq v1.8.0
+## explicit
+github.com/lib/pq
+github.com/lib/pq/oid
+github.com/lib/pq/scram
+# github.com/sirupsen/logrus v1.6.0
+## explicit
+github.com/sirupsen/logrus
+# golang.org/x/sys v0.0.0-20190422165155-953cdadca894
+golang.org/x/sys/unix
